@@ -7,4 +7,6 @@ module sv.edu.udb.desafio2_ped {
 
     opens sv.edu.udb.desafio2_ped to javafx.fxml;
     exports sv.edu.udb.desafio2_ped;
+    opens sv.edu.udb.desafio2_ped.controller to javafx.fxml;
+    exports sv.edu.udb.desafio2_ped.controller;
 }
