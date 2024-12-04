@@ -37,4 +37,25 @@ public class test {
 
         assertEquals(List.of("A", "C", "B"), result); // Puede variar el orden dependiendo de la implementación
     }
+
+    @Test
+    public void testMethods(){
+        Graph graph = new Graph();
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addEdge("A", "B", 1.0);
+        graph.addEdge("B", "C", 2.0);
+        graph.addEdge("C", "A", 3.0);
+
+        System.out.println("Grafo inicial: " + graph.getAdjacencyList());
+
+        graph.removeVertex("B");
+        System.out.println("Después de eliminar el vértice B: " + graph.getAdjacencyList());
+
+        graph.removeEdges("C");
+        System.out.println("Después de eliminar las aristas de C: " + graph.getAdjacencyList());
+
+
+    }
 }

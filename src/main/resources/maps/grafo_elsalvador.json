@@ -1,0 +1,37 @@
+{
+  "background": "C:\\Users\\Salefuente\\Downloads\\elsalvador.png",
+  "nodos": [
+      { "nombre": "Ahuachapán", "x": 268, "y": 428 },
+      { "nombre": "Santa Ana", "x": 527, "y": 273 },
+      { "nombre": "Sonsonate", "x": 423, "y": 535 },
+      { "nombre": "La Libertad", "x": 614, "y": 523 },
+      { "nombre": "San Salvador", "x": 762, "y": 501 },
+      { "nombre": "Cuscatlán", "x": 856, "y": 468 },
+      {"nombre":  "La Paz", "x": 884 ,"y": 669},
+      { "nombre": "Chalatenango", "x": 747, "y": 220 },
+      { "nombre": "Cabañas", "x": 1055, "y": 409 },
+      { "nombre": "San Vicente", "x": 1018, "y": 557 },
+      { "nombre": "Usulután", "x": 1171, "y": 718 },
+      { "nombre": "San Miguel", "x": 1350, "y": 670 },
+      { "nombre": "Morazán", "x": 1431, "y": 490 },
+      { "nombre": "La Unión", "x": 1522, "y": 665 }
+    ],
+    "conexiones": [
+      { "origen": "Ahuachapán", "destino": "Santa Ana", "peso": 83 },
+      { "origen": "Santa Ana", "destino": "Sonsonate", "peso": 76 },
+      { "origen": "Santa Ana", "destino": "Chalatenango", "peso": 49 },
+      { "origen": "Sonsonate", "destino": "La Libertad", "peso": 38 },
+      { "origen": "La Libertad", "destino": "San Salvador", "peso": 44 },
+      { "origen": "San Salvador", "destino": "Cuscatlán", "peso": 55 },
+      { "origen": "San Salvador", "destino": "Chalatenango", "peso": 74 },
+      { "origen": "Cuscatlán", "destino": "Cabañas", "peso": 39 },
+      {"origen":  "San Salvador", "destino":  "La Paz", "peso": 69},
+      {"origen":  "La Paz", "destino": "San Vicente", "peso":40 },
+      { "origen": "Cabañas", "destino": "San Vicente", "peso": 48 },
+      { "origen": "San Vicente", "destino": "Usulután", "peso": 82 },
+      { "origen": "Usulután", "destino": "San Miguel", "peso": 77 },
+      { "origen": "San Miguel", "destino": "Morazán", "peso": 66 },
+      { "origen": "Morazán", "destino": "La Unión", "peso": 54 }
+    ]
+  }
+  

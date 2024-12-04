@@ -32,6 +32,7 @@
             <Label text="Opciones de Recorrido" style="-fx-font-weight: bold;" />
             <Button fx:id="bfsButton" text="Recorrido en Anchura (BFS)" onAction="#onBFS" />
             <Button fx:id="dfsButton" text="Recorrido en Profundidad (DFS)" onAction="#onDFS" />
+            <ComboBox fx:id="startNodeSelector" prefWidth="150.0" />
         </VBox>
     </left>
 

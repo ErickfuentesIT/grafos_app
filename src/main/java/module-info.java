@@ -4,6 +4,7 @@ module sv.edu.udb.desafio2_ped {
 
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires com.google.gson;
 
     opens sv.edu.udb.desafio2_ped to javafx.fxml;
     exports sv.edu.udb.desafio2_ped;
