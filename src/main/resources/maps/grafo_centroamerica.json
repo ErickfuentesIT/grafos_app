@@ -1,13 +1,13 @@
 {
-    "background": "C:\\Users\\Salefuente\\Downloads\\centroamerica.jpg",
+    "background": "C:\\Users\\erick\\Downloads\\centroamerica.jpg",
     "nodos": [
-      { "nombre": "Guatemala", "x": 100, "y": 200 },
-      { "nombre": "Belice", "x": 200, "y": 150 },
-      { "nombre": "Honduras", "x": 400, "y": 300 },
-      { "nombre": "El Salvador", "x": 300, "y": 400 },
-      { "nombre": "Nicaragua", "x": 500, "y": 600 },
-      { "nombre": "Costa Rica", "x": 700, "y": 800 },
-      { "nombre": "Panamá", "x": 900, "y": 900 }
+      { "nombre": "Guatemala", "x": 242, "y": 211 },
+      { "nombre": "Belice", "x": 357, "y": 89 },
+      { "nombre": "Honduras", "x": 434, "y": 234 },
+      { "nombre": "El Salvador", "x": 336, "y": 316 },
+      { "nombre": "Nicaragua", "x": 574, "y": 381 },
+      { "nombre": "Costa Rica", "x":  657, "y": 559 },
+      { "nombre": "Panamá", "x": 880, "y": 653 }
     ],
     "conexiones": [
       { "origen": "Guatemala", "destino": "Belice", "peso": 150 },

@@ -23,9 +23,6 @@ public class Edge {
         return distance;
     }
 
-    public void setDistance(double v) {
-        this.distance = distance;
-    }
 
 
 }

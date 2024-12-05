@@ -1,7 +1,6 @@
 package sv.edu.udb.desafio2_ped.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
@@ -13,6 +12,7 @@ import javafx.scene.control.MenuItem;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -29,9 +29,6 @@ import java.util.Map;
 public class GraphController {
 
     @FXML private ComboBox<String> mapSelector;
-    @FXML private Button loadMapButton;
-    @FXML private Button bfsButton;
-    @FXML private Button dfsButton;
     @FXML private Pane graphPane;
     @FXML private Label statusLabel;
     @FXML private ComboBox<String> startNodeSelector;
@@ -60,8 +57,6 @@ public class GraphController {
 
     }
 
-
-
     @FXML
     private void onLoadMap() {
         String selectedMap = mapSelector.getValue();
@@ -69,7 +64,13 @@ public class GraphController {
             statusLabel.setText("Por favor, selecciona un mapa.");
             return;
         }
+
+        // Limpiar nodos, aristas y datos actuales
+        graphPane.getChildren().clear();
+        positions.clear();
+        currentGraph = new Graph();
         startNodeSelector.getItems().clear();
+
         // Cargar el mapa correspondiente (puedes conectarlo con JSON o mapas predefinidos)
         if (selectedMap.equals("El Salvador")) {
             loadJsonMap("src/main/resources/maps/grafo_elsalvador.json");
@@ -177,26 +178,6 @@ public class GraphController {
         }
     }
 
-
-    private void enableNodeRenaming(Circle circle, String vertexName) {
-        circle.setOnContextMenuRequested(e -> {
-            TextInputDialog dialog = new TextInputDialog(vertexName);
-            dialog.setTitle("Renombrar Nodo");
-            dialog.setHeaderText("Renombrar nodo: " + vertexName);
-            dialog.setContentText("Nuevo nombre:");
-
-            Optional<String> result = dialog.showAndWait();
-            result.ifPresent(newName -> {
-                if (currentGraph.getVertices().contains(newName)) {
-                    statusLabel.setText("El nombre ya existe.");
-                } else {
-                    currentGraph.getVertices().remove(vertexName);
-                    currentGraph.addVertex(newName);
-                    visualizeGraph(); // Actualizar visualización
-                }
-            });
-        });
-    }
     private String getVertexNameFromCircle(Circle circle) {
         for (Map.Entry<String, Double[]> entry : positions.entrySet()) {
             Double[] position = entry.getValue();
@@ -518,29 +499,29 @@ public class GraphController {
 
     private void setPaneBackground(String imagePath) {
         try {
-            // Crear una imagen de fondo que se adapte al tamaño del Pane
+            // Crear una imagen desde el archivo proporcionado
             javafx.scene.image.Image image = new javafx.scene.image.Image(imagePath);
 
-            // Crear el tamaño de fondo ajustado al tamaño del Pane
+            // Crear un tamaño de fondo que se ajuste dinámicamente al tamaño del Pane
             javafx.scene.layout.BackgroundSize backgroundSize = new javafx.scene.layout.BackgroundSize(
-                    javafx.scene.layout.BackgroundSize.AUTO, // Usar ancho automático
-                    javafx.scene.layout.BackgroundSize.AUTO, // Usar alto automático
-                    false, // Escalar horizontalmente
-                    false, // Escalar verticalmente
-                    true,  // Contener la imagen dentro del Pane
-                    true   // Ajustar proporcionalmente
+                    javafx.scene.layout.BackgroundSize.AUTO, // Auto ajusta el ancho
+                    javafx.scene.layout.BackgroundSize.AUTO, // Auto ajusta el alto
+                    false, // No escalar más allá del tamaño
+                    false,
+                    true, // Mantener proporciones
+                    false // No recortar
             );
 
-            // Crear un BackgroundImage con la configuración adecuada
+            // Crear un BackgroundImage que incluye la imagen ajustada al tamaño del Pane
             javafx.scene.layout.BackgroundImage backgroundImage = new javafx.scene.layout.BackgroundImage(
                     image,
+                    javafx.scene.layout.BackgroundRepeat.NO_REPEAT, // No repetir la imagen
                     javafx.scene.layout.BackgroundRepeat.NO_REPEAT,
-                    javafx.scene.layout.BackgroundRepeat.NO_REPEAT,
-                    javafx.scene.layout.BackgroundPosition.CENTER,
+                    javafx.scene.layout.BackgroundPosition.CENTER, // Centrar la imagen
                     backgroundSize
             );
 
-            // Establecer el fondo en el Pane
+            // Establecer la imagen de fondo en el Pane
             graphPane.setBackground(new javafx.scene.layout.Background(backgroundImage));
         } catch (Exception e) {
             e.printStackTrace();
